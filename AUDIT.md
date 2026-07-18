@@ -78,9 +78,11 @@ The narrow claim (the 81% figure is externally unverifiable) is a special case o
 
 ## F4: Maintainers decide on information absent from the diff (existence stage)
 
-**Claim:** Real merge decisions use inputs a diff-only grader never sees. This is an existence claim, and the sweep record establishes it: ruff#25066 was closed with the stated reason being the summary's missing reasoning, not the code; cucumber/gherkin's maintainer rejected on interaction cadence with the patch conceded correct. What existence does not give is the counterfactual — that a better description would have merged those PRs. The causal fixed-diff claim awaits H17's 12-PR description-treatment arm, whose outcomes are a records lookup in sweep (due since 2026-05-21), plus treatment-comparability checks.
+**Claim:** Real merge decisions use inputs a diff-only grader never sees. This is an existence claim, and F1's re-verified record establishes it beyond the original examples: ruff#25066 closed on the summary's missing reasoning; cucumber/gherkin rejected on interaction cadence with a fix path offered for the code; scrapy#7512 "Closing without a review" — the diff explicitly unevaluated.
 
-**Falsifier:** the existing record, honestly reread, shows the non-diff reasons were pretextual — each closure reclassifies to a diff cause on thread inspection.
+**Causal upgrade: RETURNED NULL (H17 pulled 2026-07-18, f1/h17-outcomes.jsonl).** The 12-PR description-treatment arm does not show description variation moving outcomes: 1/12 merged, 4/12 closed, 7/12 open with zero maintainer touch. The treatment couldn't act because most PRs never got attention — the arm measures the attention bottleneck, not the description effect. One closure (chalk#667) engaged the experiment framing and judged the fix wrong, a partial disclosure-detection hit consistent with the graph exposing rather than coaxing. F4 therefore stands as existence only; no fixed-diff causal claim is made anywhere in this audit.
+
+**Falsifier (for the existence claim):** the F1 record, reread, reclassifies the non-diff closures to diff causes. The dual-coder pass makes this concrete: it would require overturning 52 both-coder codes.
 
 ## F5: IF Diamond was selected on model failure, its floor is partly selection-induced (selection clause; UNRESOLVED)
 
@@ -148,13 +150,13 @@ The ambiguity is real and the literal reading favors the failed solution. The br
 
 ```
 F6 (no public receipts) → audit surface = disclosures + leaderboard + 1 demo task
-F4 (existence: non-diff causes decide) → F1 (prevalence on closures) → F0 (construct loss)
+F4 (existence, confirmed) → F1 (52/59 floor, run) → F0 (construct gap, supported on population)
 F5 (selection, conditional) + F7 (spec/oracle defects, receipted) → the floor is partly instrument
 F2 (attribution confound) → the ranking is configurations, not models
 Governance (COI, undisclosed) → multiplies F6: the unaccountable party is also interested
 ```
 
-F1 is the cheapest next step (all inputs on local disk). F4's causal upgrade is a sweep records lookup (H17 outcomes).
+The evidence chain is complete on the audited population; the open flanks are their regime (Diamond-difficulty preemption) and the F5 selection conditional.
 
 ## Auditor's contract (standing constraints from the methodology post)
 
@@ -175,7 +177,7 @@ F1 is the cheapest next step (all inputs on local disk). F4's causal upgrade is 
 
 **Direct recommendation: grade the hypothesis graph**, per [The Hypothesis Graph: A Verifiable Semantic Memory for Coding Agents](https://june.kim/the-hypothesis-graph-semantic-memory-methodeutics) ([PDF](https://june.kim/assets/the-hypothesis-graph-semantic-memory-methodeutics.pdf)). The axes FrontierCode omits (description reasoning, why-this-fix, interaction) are what a maintainer reviews when deciding to merge, and the paper's contribution is that this reasoning can be a gradeable artifact: typed claims, recorded trials, refutation edges, replayable by an independent party — verification mechanical rather than LLM-judged.
 
-The stance (operator, 2026-07-17): the graph is the best a machine can do; everything else in the communication layer is unverifiable cheap talk, and potentially deceptive. This dissolves the obvious objection to grading the description at all — that scoring prose trains smooth-talkers who coax PRs past review. Grading raw description prose would Goodhart persuasion; grading the graph cannot, because every claim in it carries a replayable trial, so the only way to score is to be checkably right. A coding agent doesn't need to pretend to be human; it needs to show its work in a form a machine can re-run. And the floor argument holds even if the ceiling doesn't: a graded-graph benchmark that turns out not to predict merges is still strictly better than grading nothing of the reasoning layer, because it replaces an unmeasured axis with a verifiable one. Open questions honestly held: whether maintainers want the artifact and whether its score predicts merges (H15/H17 field data is early and mixed by maintainer class); what the paper settles is that the reasoning layer can be made checkable at all, which is the precondition for grading it.
+The stance (operator, 2026-07-17): the graph is the best a machine can do; everything else in the communication layer is unverifiable cheap talk, and potentially deceptive. This dissolves the obvious objection to grading the description at all — that scoring prose trains smooth-talkers who coax PRs past review. Grading raw description prose would Goodhart persuasion; grading the graph cannot, because every claim in it carries a replayable trial, so the only way to score is to be checkably right. A coding agent doesn't need to pretend to be human; it needs to show its work in a form a machine can re-run. And the floor argument holds even if the ceiling doesn't: a graded-graph benchmark that turns out not to predict merges is still strictly better than grading nothing of the reasoning layer, because it replaces an unmeasured axis with a verifiable one. Open questions honestly held: whether maintainers want the artifact (H15/H17b field data splits by maintainer class — a formal-methods maintainer read the trace as a methods section, a paid-linker maintainer said "we want to talk to you, not your bot") and whether it moves merge outcomes (the H17 arm returned null: 7 of 12 treated PRs drew zero maintainer attention, so the arm measured the attention bottleneck, not the artifact). What the paper settles is that the reasoning layer can be made checkable at all, which is the precondition for grading it; the benchmark-grading case rests on that verifiability, not on a field merge-lift.
 
 **Supporting form:** the detector from [(Issue) → PR](https://june.kim/issue-to-pr), a classifier trained on a repo's merge/close corpus, recalibrating as the repo's floor moves where a frozen rubric snapshots 20 maintainers' taste. Its own ecological accuracy needs receipts (survivorship, per-repo sample sizes) before it is proposable as a replacement metric.
 

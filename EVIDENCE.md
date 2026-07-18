@@ -60,6 +60,10 @@ The goal question the audit turned on: is their stated goal model discrimination
 - Latent Space roundup (variance/reproducibility concerns; harness-dependence noted by practitioners): https://www.latent.space/p/ainews-frontiercode-benchmarking
 - Aggregator leaderboards relaying scores without re-running: benchlm.ai, llm-stats.com, benchmarklist.com
 
+## F1 result (this audit's own measurement, 2026-07-18)
+
+Primary evidence for the construct gap; supersedes reliance on sweep's self-reported taxonomy below. Population: all 98 closed-unmerged kimjune01 PRs since 2026-05-09 (88 merged / 103 open at pull). Two independent coders (Claude agents from threads; codex blind from verbatim quotes). At least 52/59 confidently-coded maintainer/bot closures decided outside the six rubric axes; 3/59 diff-decided both-coder; dichotomy agreement 93%. Decomposition: superseded 16, ai_identity 15, policy 8, duplicate 4, other 4 (incl. 21-second pallets batch-close cluster), cadence 2, stale 2, wrong_premise 1, standing 1. Four closures are accepted-work mislabels (fish-shell, opensquilla, polars, evebox). Records: `f1/coded/all.jsonl`, `f1/second_coder_raw.txt`, `f1/PROTOCOL.md`, `f1/h17-outcomes.jsonl`.
+
 ## Our field data (sweep)
 
 Source: ~/Documents/sweep/HYPOTHESIS_GRAPH.md and its public mirror https://github.com/kimjune01/sweep/blob/master/HYPOTHESIS_GRAPH.md. Numbers as of the retro dates named; the graph is live and moves.
