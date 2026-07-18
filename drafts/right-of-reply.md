@@ -1,6 +1,6 @@
 # Right of reply: an external audit of FrontierCode
 
-*Draft. Not sent. Target: FrontierCode team at Cognition (research contact), with a copy as an issue on kimjune01/frontiercode-audit for the public record.*
+*Published 2026-07-18 as https://github.com/kimjune01/frontiercode-audit/issues/1. Direct send to the FrontierCode team pending; the issue is the public record.*
 
 ---
 
