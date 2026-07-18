@@ -1,4 +1,4 @@
-# FrontierCode Audit Hypothesis Graph (2026-07-17)
+# FrontierCode Audit Preregistration (2026-07-17)
 
 The audit is an experiment on a benchmark. Each hypothesis is a claim about what FrontierCode measures versus what it says it measures. Numbering is F-prefixed to avoid colliding with sweep's H-series. Sin taxonomy and check numbers reference [How to Audit a Benchmark](https://june.kim/how-to-audit-a-benchmark).
 

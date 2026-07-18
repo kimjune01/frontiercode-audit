@@ -47,6 +47,6 @@ The dataset is private. Cognition grants evaluation access to model developers o
 
 ## Files
 
-- [HYPOTHESIS_GRAPH.md](./HYPOTHESIS_GRAPH.md) — pre-registered audit hypotheses with falsifiers
+- [PREREG.md](./PREREG.md) — pre-registered audit hypotheses with falsifiers
 - [EVIDENCE.md](./EVIDENCE.md) — receipts: our data, their disclosures, third-party commentary
 - [worklog/WORK_LOG.md](./worklog/WORK_LOG.md) — dated session log
