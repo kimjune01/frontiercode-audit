@@ -1,18 +1,18 @@
 # Right of reply: an external audit of FrontierCode
 
-*Draft. Not sent. Target: FrontierCode team at Cognition (research contact), with a copy as an issue on kimjune01/frontiercode-audit for the public record. For an email paste, strip the bold markers.*
+*Draft. Not sent. Target: FrontierCode team at Cognition (research contact), with a copy as an issue on kimjune01/frontiercode-audit for the public record.*
 
 ---
 
-Hello. I audit coding benchmarks (SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench, MirrorCode; method at https://june.kim/how-to-audit-a-benchmark). I've completed an audit of FrontierCode from your published pages and one measurement of my own, and I'm sending you the findings before I publish anything. Corrections welcome; I'll link your response from the audit.
+Hello. I audit coding benchmarks (SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench, MirrorCode; method at https://june.kim/how-to-audit-a-benchmark). I've completed an audit of FrontierCode from your published pages and one measurement of my own, and I'm sending you the findings before I publish anything. Corrections are welcome, and I'll link your response from the audit.
 
 The audit, with receipts, protocols, and per-finding falsifiers: https://github.com/kimjune01/frontiercode-audit
 
-**What holds up.** Your diagnosis of SWE-bench's false-positive problem matches what my own audits keep finding. Reverse-classical testing is a good deterministic invention. The hack-report step, four-solution rubric calibration, and researchers solving tasks themselves are QC most benchmarks lack. The private task set is an anti-contamination credit.
+Some of the design holds up well under audit. Your diagnosis of SWE-bench's false-positive problem matches what my own audits keep finding. Reverse-classical testing is a good deterministic invention. The hack-report step, four-solution rubric calibration, and researchers solving tasks themselves are QC most benchmarks lack. The private task set is an anti-contamination credit.
 
-**The main finding** (AUDIT.md, F0/F1). The headline asks "would the maintainer actually merge this PR?" but the grader sees none of the PR-level information maintainers use. I measured the cost of that omission on 98 closed-unmerged PRs whose outcomes are known: in at least 52 of 59 confidently-coded maintainer closures, two coders from different model families found the deciding cause outside your six rubric axes, and a diff-quality cause decisive in exactly 3. The population, its bounds, the coding protocol, and the coded threads are all in the repo. What survives the bounds: off-diff causes can dominate a real contribution population, and I found no published criterion-validity number connecting FrontierCode verdicts to actual maintainer decisions, which is the number "trust it to evaluate the production readiness of their strongest models" presumes.
+The main finding (AUDIT.md, F0/F1) is a measurement. The headline asks "would the maintainer actually merge this PR?" but the grader sees none of the PR-level information maintainers use. I measured the cost of that omission on 98 closed-unmerged PRs whose outcomes are known: in at least 52 of 59 confidently-coded maintainer closures, two coders from different model families found the deciding cause outside your six rubric axes, and a diff-quality cause decisive in exactly 3. The population, its bounds, the coding protocol, and the coded threads are all in the repo. What survives the bounds: off-diff causes can dominate a real contribution population, and I found no published criterion-validity number connecting FrontierCode verdicts to actual maintainer decisions, which is the number "trust it to evaluate the production readiness of their strongest models" presumes.
 
-**Five findings from your published artifacts**, each detailed with quotes and falsifiers in AUDIT.md (F2, F5, F7, Governance):
+Five further findings come from your published artifacts alone; each is detailed, with quotes and falsifiers, in AUDIT.md (F2, F5, F7, Governance):
 
 1. One underdetermined requirement accounts for both failed blockers in the only public task-level grading receipt, and your commentary notes the two solutions are "behaviorally the same" (F7, task-wise).
 2. The grading oracle's model is never named: no name, no version, no published pinning policy, so readers cannot assess judge drift or the judge's independence from the systems it grades (F7, oracle).
@@ -20,7 +20,7 @@ The audit, with receipts, protocols, and per-finding falsifiers: https://github.
 4. Each leaderboard entry is a jointly varying model-harness-effort configuration, and the numbered column reads as a model ranking (F2).
 5. Deprecated Diamond scores still circulate as the benchmark's public numbers, with no disclosed reason or comparability guidance; and no ownership statement appears on the pages reviewed while SWE-1.7 is scored on the board (F5, Governance).
 
-**The ask.** Publish enough to make the verdicts publicly checkable (the itemized minimum is in AUDIT.md under "Ask for concrete disclosures"), and the number the headline implies: criterion validity against adjudicated real merge decisions on post-cutoff PRs. Every finding above has a falsifier in the audit. I'd rather link your ablation than my inference.
+The ask is short. Publish enough to make the verdicts publicly checkable (the itemized minimum is in AUDIT.md under "Ask for concrete disclosures"), and the number the headline implies: criterion validity against adjudicated real merge decisions on post-cutoff PRs. Every finding above has a falsifier in the audit. I'd rather link your ablation than my inference.
 
 June Kim
 https://june.kim · audit: https://github.com/kimjune01/frontiercode-audit (CC BY-SA-NS)
