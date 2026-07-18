@@ -27,7 +27,8 @@ The goal question the audit turned on: is their stated goal model discrimination
   - v1.1: fair-internet-use rules, 1,000+ grading criteria audited, 75 relaxed. The leaderboard page (verbatim): v1.1 "audits blocker criteria and deprecates the Diamond subset," and "Runs flagged for unfair internet use are zeroed."
 - Diamond deprecation means the widely-circulated 13.4%/6.3%/4.7% scores cite a subset the current revision no longer reports. Any published number must say which revision it refers to.
 - Rubric mechanics (announcement, verbatim): "Blockers represent mergeability requirements, i.e., criteria that a maintainer would consider hard stops during code review." Non-blockers are quality signals. Nothing on either list scores the PR description, commit messages, or agent communication.
-- Source snapshots: `sources/*.html`, retrieved 2026-07-17 via curl.
+- Source snapshots: `sources/*.html`, retrieved 2026-07-17 via curl. Demo-task rubric (10 criteria, Opus 4.8 verdict): `sources/frontiercode-demo-task-rubric-2026-07-17.md`, retrieved via the interactive leaderboard demo.
+- Live leaderboard (1.1 Main, best reasoning mode, 2026-07-17): Fable 5 leads at 53.5% ($13.09/rollout), GPT-5.6 Sol 47.5%, Opus 4.8 46.5%, GPT-5.5 43.0%, SWE-1.7 7th at 42.3% ($1.97/rollout, the cost-efficiency story). 17 models listed. Chart legend admits "marker shapes distinguish harnesses."
 
 ### Conflict of interest (verified 2026-07-17, feeds F6)
 

@@ -14,8 +14,8 @@ Of the 11 checks, the private dataset blocks 6. That asymmetry is itself a findi
 | 4 | recompute headline | partially (leaderboard only) | F2 |
 | 5 | retrieve one receipt | fails structurally | F6 |
 | 6 | run the answer key | blocked (no golds shipped) | F6 |
-| 7 | read what assertions pin | blocked (no tests shipped) | F6 |
-| 8 | probe spec determinacy | blocked | F6 |
+| 7 | read what assertions pin | partially (disclosed grading methods + 1 public task) | F6, F7 |
+| 8 | probe spec determinacy | partially (1 public task) | F6, F7 |
 | 9 | mutate gold and regrade | blocked | F6 |
 | 10 | what survives publication | yes (privacy helps here; credit to record) | — |
 | 11 | audit the run | only for runs we execute ourselves | future |
@@ -83,6 +83,37 @@ The narrow claim (the 81% figure is externally unverifiable) is a special case o
 **COI, now receipted (2026-07-17):** No conflict-of-interest statement exists on any primary page. The SWE-1.7 launch post scores their own model on FrontierCode 1.1 Main (42.3%, third overall) in a results table alongside third-party benchmarks, with no ownership note, and states the alignment outright: "formulating and refining principles for good agentic software engineering both in evaluation, with FrontierCode 1, 2, and now in training, with SWE-1.7." The grader and the graded model are built on the same principles by the same team, the verdicts are unretrievable by outsiders, and no disclosure marks any of it.
 
 **Falsifier:** A public validation subset with retrievable per-trial receipts, or a third party with access publishing an independent re-grade with receipts. F6 subsumes the old F3 claim about the 81% figure; F3 stays as the narrow version.
+
+## F7: Grader-wise and task-wise desk read (checks 7–8 on the public surface)
+
+**Surface:** the announcement's grading-methods disclosure and the single public example task (LOG_WARNING on the jsonschema C++ repo, embedded in the announcement and leaderboard pages; pinned in sources/). n=1 task; every claim below is bounded by that.
+
+**Grader-wise: three of six methods have an LLM inside the oracle.**
+
+| Method | Oracle | Deterministic? |
+|--------|--------|----------------|
+| classical (injected tests) | fixed tests | yes |
+| command (build/lint) | exit code | yes |
+| reverse-classical (agent tests fail on base) | fixed procedure | yes |
+| adaptive classical (mutagent) | LLM-adapted tests per submission | no — adaptation is an LLM judgment |
+| scope: files/size | boundaries | yes |
+| scope: semantic + code-quality prompt | LLM judge vs threshold | no |
+
+The mutagent description claims the resolution both ways: an LLM "surgically patch[es] the test environment (or the application code) to align with the agent's implementation details, allowing us to run rigorous, deterministic tests." Determinism after adaptation does not make the adaptation deterministic — each submission is graded against a machine-generated variant of the oracle that no one else sees, stacked on mean@5 sampling variance. And "or the application code" is a frame-clause risk: a tool authorized to patch application code to make tests align with the implementation is structurally adjacent to masking a regression; whether it is guarded is undisclosed. Their own QC section concedes the asymmetry: "Hardening prompt-based criteria is a much harder QC problem."
+
+**Blocker semantics amplify single-criterion defects.** Any failed blocker zeroes the run. So one plural or misdetermined blocker doesn't perturb a score, it deletes it — the headline number's sensitivity to a single bad criterion is total. v1.1 relaxing 75 "overly strict" criteria and auditing blocker criteria specifically is their own measurement of this exposure.
+
+**Task-wise: full rubric retrieved (2026-07-17, sources/frontiercode-demo-task-rubric-2026-07-17.md), and the determinacy read sharpened.** The interactive demo exposes all 10 criteria for the one public task. Opus 4.8's run: 8/10 met, verdict "Fail · 24%". The only two failures are the two multi-line-warning criteria, and both are BLOCKERS — the entire fail verdict rests on the idiom question.
+
+The determinacy classification is now stronger than "plural"; the literal reading favors the failed solution. The brief's operative sentence is "Use this new function in every instance of warning: <message> messages." A continuation line of a multi-line warning carries no "warning:" prefix — it is not an instance of "warning: <message>" — and Opus converted every line that is. The graded requirement (route whole multi-line messages through one chained call) is derivable only from the intent reading of "Encapsulate all warning logs," which the brief's own operationalization sentence then narrows. The prose licenses both readings; the blocker silently pins the one the agent-facing sentence disfavors. Their commentary concedes the solutions are "behaviorally the same" and defends the fail on future-modification taste that appears nowhere in the brief. On the only task outsiders can inspect, 2 of 10 criteria are in the plural class, both at blocker severity, and they alone flip pass to fail. Bounded claim: n=1 task, and a maintainer might genuinely hard-stop on this; the sin is that the brief doesn't say so and the announcement narrates the resulting failure as "models fail this task in a somewhat surprising way" — underdetermination read as model weakness, the exact ambiguity F5 predicts.
+
+**Score-presentation wrinkle from the same retrieval:** the demo displays "Fail · 24%" for a blocker-failing run while the announcement and the leaderboard's own score note say blocker failure yields zero ("Solutions that don't pass blocking criteria receive 0"). Display-only aggregate vs scored zero — two numbers for one run, unlabeled.
+
+**F2 receipt from their own page:** the chart legend reads "marker shapes distinguish harnesses" — the board itself admits mixed harnesses per entry; this no longer rests on Epoch's description alone.
+
+**Credits from the same read (recorded per the come-back-empty rule):** reverse-classical is a genuinely good deterministic invention; the hack-report step (author plays adversary, both false-positive and false-negative directions) is real QC; four-solution calibration targeting a 0–100 score range is resolution discipline most benchmarks lack; researchers solving a random subset themselves is a partial answer to F5's human-baseline demand (partial: a random subset, solvability-checking, not a per-task completed baseline).
+
+**Falsifiers:** For the mutagent claim: published adaptation logs showing per-submission adaptations are semantically equivalence-preserving, or an ablation showing grade agreement between adapted and unadapted runs. For the task-wise claim: a disclosed rubric line for this task that does pin the multi-line idiom in text the agent sees (the interactive demo's rubric may contain it — retrieval pending). For the LLM-judge concern: reported inter-run agreement on prompt-based criteria across the mean@5 samples.
 
 ## Causal chain
 
