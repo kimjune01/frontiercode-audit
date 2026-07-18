@@ -1,6 +1,6 @@
 # Right of reply: an external audit of FrontierCode
 
-*Published 2026-07-18 as https://github.com/kimjune01/frontiercode-audit/issues/1. Direct send to the FrontierCode team pending; the issue is the public record.*
+*Filed 2026-07-18 as https://github.com/CognitionAI/devin-swebench-results/issues/4, the closest public tracker Cognition operates (FrontierCode has no public repository). Prior emails to the team went unanswered; the issue is the public record and the ask.*
 
 ---
 
