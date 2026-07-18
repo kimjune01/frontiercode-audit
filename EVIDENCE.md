@@ -28,6 +28,13 @@ The goal question the audit turned on: is their stated goal model discrimination
 - Diamond deprecation means the widely-circulated 13.4%/6.3%/4.7% scores cite a subset the current revision no longer reports. Any published number must say which revision it refers to.
 - Rubric mechanics (announcement, verbatim): "Blockers represent mergeability requirements, i.e., criteria that a maintainer would consider hard stops during code review." Non-blockers are quality signals. Nothing on either list scores the PR description, commit messages, or agent communication.
 - Source snapshots: `sources/*.html`, retrieved 2026-07-17 via curl.
+
+### Conflict of interest (verified 2026-07-17, feeds F6)
+
+- No COI or disclosure statement on any primary page. Grep of pinned HTML for conflict/disclos/impartial/independen/neutral/vested: zero hits in a COI sense across announcement, v1.1 post, and leaderboard page.
+- The SWE-1.7 post (https://cognition.com/blog/swe-1-7, pinned in sources/) scores Cognition's own model on their own benchmark: "FrontierCode 1.1 Main 42.3%" in the headline results table, third behind Opus 4.8 (46.5%) and GPT-5.5 (43.0%), presented alongside third-party benchmarks with no note that they own this one.
+- The alignment admission, verbatim: "At Cognition, we have been formulating and refining principles for good agentic software engineering both in evaluation, with FrontierCode 1, 2, and now in training, with SWE-1.7." The same principles built the grader and trained the model. Their model's behavioral analysis is even reported in FrontierCode's own vocabulary ("Behavioral tendencies on FrontierCode 1.1 Main"; scope discipline "As described in FrontierCode 1").
+- Per the methodology post's check-5 companion: none of a producer's commercial relationships are conflicts when the artifact is marketing; each is a conflict when the artifact is asked to be science. Their conclusion asks for science ("researchers can trust it to evaluate the production readiness of their strongest models").
 - Their SWE-bench critique: ~81% false-positive rate claim (passing solutions that would not merge). Unverifiable externally; see F3.
 - Leaderboard (Diamond, as of 2026-07): Claude Opus 4.8 ~13.4%, GPT-5.5 6.3%, Gemini 3.1 Pro 4.7%.
 
