@@ -40,7 +40,16 @@ The goal question the audit turned on: is their stated goal model discrimination
 
 ## Third-party tracking and commentary
 
-- Epoch AI tracks it: https://epoch.ai/benchmarks/frontiercode
+### Epoch AI (verified verbatim 2026-07-17, snapshot in sources/)
+
+- Relay confirmed, no independent re-run: "We source results from Cognition's public FrontierCode data."
+- They chart the deprecated subset: "Our chart reports the Diamond score: each model's rubric score on the hardest 50-task Diamond subset at its best-performing reasoning effort." Cognition's v1.1 deprecated Diamond; Epoch's chart still reports it. Fileable correction for Epoch (the evals-shop surface is where audit findings land).
+- Best-performing reasoning effort = max-over-configs ranking, the check-4 score sin (ranking model-and-effort pairs presented as ranking models).
+- Harness heterogeneity confirmed: "Models are run through agent harnesses such as Claude Code, Codex, Gemini CLI, mini-SWE-agent, and Devin; we keep each model's harness and best-performing reasoning effort in the data export." Different models ran under different harnesses; leaderboard deltas mix model and harness. Direct F2 receipt.
+- Scoring mechanics: "mean@5 aggregation against a weighted rubric, where failing any blocker criterion yields a zero." Cognition also reports a separate binary pass rate that Epoch does not show, so two headline statistics circulate for the same runs.
+
+### Other
+
 - Latent Space roundup (variance/reproducibility concerns; harness-dependence noted by practitioners): https://www.latent.space/p/ainews-frontiercode-benchmarking
 - Aggregator leaderboards relaying scores without re-running: benchlm.ai, llm-stats.com, benchmarklist.com
 
@@ -76,6 +85,6 @@ Source: june.kim/does-iteration-mitigate-slop-slope; repo https://github.com/kim
 - v1.1 changelog detail on the 75 relaxed criteria: which axes, which tasks. Feeds F5/F6.
 
 - H17 treatment-arm outcomes (were due +7d from 2026-05-14; sweep graph on disk predates resolution).
-- Whether Epoch independently re-runs FrontierCode or relays Cognition's numbers.
-- FrontierCode's harness spec per leaderboard entry, if disclosed anywhere.
 - Exact sweep closure records export for the F1 mapping table (`outcomes.py` records in the sweep repo).
+
+Resolved 2026-07-17: Epoch relays, does not re-run (Epoch section above). Harness-per-entry is disclosed in Epoch's data export and is heterogeneous across models.

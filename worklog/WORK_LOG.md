@@ -10,8 +10,11 @@ Second pass: read how-to-audit-a-benchmark against the seed. F0 recast as a chec
 
 Third pass: goal verification. Operator decision rule: if Cognition's stated goal is only model discrimination, drop the critique. Curled all three primary pages (no paper exists), verified quotes verbatim, pinned snapshots in sources/. Verdict: goal is an automation goalpost ("AI-generated code becomes the dominant path to production") plus certification ("trust it to evaluate the production readiness of their strongest models"); the ranking claim derives from the construct claim, closing the model-discrimination retreat. Critique stands, F0 updated. Bonus find: v1.1 deprecates the Diamond subset, strengthening F5; circulating 13.4% scores cite a retired subset. Audit frame confirmed with operator: construct-validity calibration.
 
+Fourth pass (improve-the-audit): COI verified absent across four primary pages; SWE-1.7 self-scoring and shared-principles admission receipted. Epoch page curled, verified, pinned: relay confirmed verbatim, chart reports the deprecated Diamond subset at best-performing reasoning effort, harness heterogeneity across models confirmed (direct F2 receipt). F2 upgraded to CONFIRMED with a self-audit note demoting the cross-regime 48pp analogy to motivation. F3 retired into F6. README restructured around ranked findings with the disclosure-prices/receipts-let-you-act conjunction argument.
+
 Next steps, cheapest first:
-1. F1 mapping table: export sweep closure records, map each to a FrontierCode rubric axis or NONE.
+1. F1 mapping table: export sweep closure records, re-verify labels against PR threads, map each to a FrontierCode rubric axis or NONE.
 2. Pull H17 treatment-arm outcomes from sweep (resolution was due 2026-05-21).
-3. Check whether Epoch re-runs or relays (their methodology page / footnotes).
+3. Outward action, operator-gated: file the stale-Diamond correction with Epoch (their chart reports a subset v1.1 deprecated) — the evals-shop surface is where findings land.
 4. Design the F4 fixed-diff description perturbation only after 1–2 are in.
+5. Right of reply: draft the note to Cognition when the findings stabilize.

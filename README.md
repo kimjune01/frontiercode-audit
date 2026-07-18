@@ -4,7 +4,9 @@ An audit of FrontierCode (Cognition, launched 2026-06-08). Main critique: the be
 
 ## The claim under audit
 
-FrontierCode's pitch is "would a maintainer actually merge this PR?" Its grading inputs are the patch alone: held-out tests plus a maintainer-authored rubric over six axes (behavioral correctness, regression safety, mechanical cleanliness, test correctness, scope, code quality). No PR description, no commit messages, no review interaction. Source: https://cognition.com/blog/frontier-code
+Verbatim, from the announcement (snapshots in `sources/`): "We're the first benchmark to measure code mergeability," asked as "Would the maintainer actually merge this PR?", offered so that "developers, enterprises, and researchers can trust it to evaluate the production readiness of their strongest models," in a world where "AI-generated code becomes the dominant path to production." That is a construct claim in the automation-goalpost register, not a model-discrimination claim; their ranking claim is explicitly derived from it ("81% less misclassification errors... This means that FrontierCode scores are the most accurate ranking currently available").
+
+The grading inputs are the patch alone: held-out tests plus a maintainer-authored rubric whose blockers are "criteria that a maintainer would consider hard stops during code review," scored mean@5 with any failed blocker zeroing the run. No PR description, no commit messages, no review interaction. The audit's mode is construct-validity calibration: how well does this instrument measure what that claim names?
 
 ## The critique
 
@@ -31,9 +33,17 @@ The audit records credits with the same discipline as defects. On current readin
 
 FrontierCode's Diamond subset is much harder than sweep's sweet spot (median 40-line boring fixes). In their regime, diff correctness plausibly is the binding constraint; in ours, the social and communication layer binds. The audit's claim is about the benchmark's stated question, which is about merging, a decision that regime difference does not hand back to the diff.
 
+## Findings so far, ranked
+
+1. **F6 + COI, the strongest and fully receipted.** The dataset is private, verdicts are unretrievable, and 6 of the methodology's 11 checks are structurally blocked — every public score rests on producer say-so. Epoch confirms it relays rather than re-runs ("We source results from Cognition's public FrontierCode data"). Meanwhile Cognition trains SWE-1.7 "on the same principles" as the benchmark, ranks it third on its own board, and discloses no conflict anywhere. The two absences compound: disclosure prices a conflict, but the reader can only act on that price when receipts exist. A disclosed conflict on a falsifiable artifact is normal science; an undisclosed conflict on an unfalsifiable one prices the number at zero in the register they chose ("researchers can trust it").
+2. **F0, the construct gap.** The claimed construct is the merge decision; the measured construct is diff quality. Sweep's field data (closure taxonomy) and the slop-slope lab result locate the decisive axes — description, cadence, compliance, standing — outside the rubric. The model-discrimination retreat is closed by their own text.
+3. **F5 + score hygiene.** Diamond, the subset the launch press quoted, was deprecated by v1.1; Epoch still charts it, at each model's best-performing reasoning effort (max-over-configs). Two headline statistics circulate for the same runs (rubric score and a binary pass rate Epoch declines to show).
+4. **F2, harness confound, confirmed.** Models ran under different harnesses (Claude Code, Codex, Gemini CLI, mini-SWE-agent, Devin per Epoch's export), so the board ranks (model, harness, effort) triples presented as models.
+5. **F4, the receipt to build.** Fixed diff, varied description, real maintainer outcomes: the one perturbation that tests the construct gap directly. Sweep's natural experiments support it; the designed version is pending.
+
 ## Audit surface
 
-The dataset is private. Cognition grants evaluation access to model developers on request and does not publish tasks. The auditable surface is therefore their published methodology, grading-criteria disclosures (v1.1: 1,000+ criteria audited, 75 relaxed), and leaderboard claims. The 81% SWE-bench false-positive figure is theirs and unverifiable from outside.
+The dataset is private. Cognition grants evaluation access to model developers on request and does not publish tasks. The auditable surface is their published methodology, grading-criteria disclosures (v1.1: 1,000+ criteria audited, 75 relaxed, Diamond deprecated), leaderboard claims, and the relay chain through evals shops. The 81% SWE-bench false-positive figure is theirs and unverifiable from outside.
 
 ## Files
 

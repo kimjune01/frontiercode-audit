@@ -44,19 +44,17 @@ Of the 11 checks, the private dataset blocks 6. That asymmetry is itself a findi
 
 **Sin class: score (check 4).** A board that ranks model-and-harness pairs while presenting itself as ranking models is comparing configurations, and the reader can't tell.
 
-**Prediction:** FrontierCode leaderboard deltas between models are confounded by agent-harness differences. Our 43% → 91% result moved approval 48pp with the model held constant and only the review loop varied, a larger delta than the entire Diamond leaderboard spread (13.4% top to <5%). If a loop moves outcomes more than a model swap, a leaderboard that reports model names is mislabeled.
+**Prediction:** FrontierCode leaderboard deltas between models are confounded by agent-harness differences.
 
-**Status: SUPPORTED in our regime, untested in theirs.** Community concerns point the same way (variance and reproducibility, per Latent Space roundup).
+**Status: CONFIRMED (2026-07-17), directly from Epoch's methodology note.** Verbatim: "Models are run through agent harnesses such as Claude Code, Codex, Gemini CLI, mini-SWE-agent, and Devin; we keep each model's harness and best-performing reasoning effort in the data export." Different models ran under different harnesses, so leaderboard deltas mix model and harness by construction, and "best-performing reasoning effort" adds a max-over-configs selection on top. The board ranks (model, harness, effort) triples and presents the ranking as models.
 
-**Falsifier:** Cognition publishes per-model harness configs showing a fixed harness across entries, plus variance bounds tight enough that a review-loop intervention could not account for inter-model gaps.
+**Self-audit note:** the earlier supporting argument (our 43% → 91% loop result exceeds the Diamond spread) is cross-regime — refactoring approval on easy tasks vs hard-task completion — and should be used as motivation, never as proof. The confirmed receipt above replaces it as the load-bearing evidence.
 
-## F3: The private dataset makes the headline claims unauditable
+**Falsifier (for the residual claim that the confound is material):** Cognition publishes per-harness ablations showing inter-model gaps stable across harnesses, with variance bounds from the mean@5 runs.
 
-**Prediction:** The 81% SWE-bench false-positive figure and the per-task rubrics cannot be verified or refuted by anyone outside Cognition's evaluation-access program. Every public citation of FrontierCode scores inherits this unverifiability.
+## F3: RETIRED, merged into F6 (2026-07-17)
 
-**Status: CONFIRMED as a structural fact** (Cognition states the dataset stays private; access on request for model developers). The open question is whether the evals shops that report it (Epoch AI tracks FrontierCode) independently re-run or merely relay. Per the bench-audit targeting rule, the evals-shop representation is where an audit finding lands, since the harness itself is out of reach.
-
-**Falsifier:** Cognition releases a public validation subset with rubrics, or a third party with access publishes an independent re-grade.
+The narrow claim (the 81% figure is externally unverifiable) is a special case of F6's structural unauditability, and its open question (does Epoch re-run or relay?) is resolved: relay, verbatim "We source results from Cognition's public FrontierCode data." Kept as a numbered stub so cross-references stay valid.
 
 ## F4: A correct diff with a varied description changes the merge outcome
 
@@ -82,7 +80,7 @@ Of the 11 checks, the private dataset blocks 6. That asymmetry is itself a findi
 
 **Sin classes: gold, oracle, spec, frame (checks 5–9), all unrunnable externally.** Check 5 fails by design: no scored trial's artifact is publicly retrievable, so every verdict is a promise. Check 6, the highest-yield dollar in benchmark auditing, which caught shipped gold defects in 3 of 3 benchmarks it was pointed at, cannot be run by anyone outside the access program. The base rate says some Diamond golds or criteria are defective; the design says nobody outside can find them, and v1.1's 75 relaxed criteria confirm the class is populated.
 
-**Prediction:** Evals shops citing FrontierCode (Epoch tracks it) relay Cognition's numbers rather than re-derive them, so the score's public life rests entirely on producer say-so. Per check 5's companion: a producer's commercial relationships are not conflicts when the artifact is marketing, and each is a conflict when the artifact is asked to be science. Cognition sells SWE-1.7 against this leaderboard.
+**Prediction: CONFIRMED (2026-07-17).** Evals shops citing FrontierCode relay Cognition's numbers rather than re-derive them; Epoch's methodology states it verbatim: "We source results from Cognition's public FrontierCode data." Worse, Epoch's chart reports the Diamond subset, which v1.1 deprecated — the relay is not only unverified but stale. The score's public life rests entirely on producer say-so. Per check 5's companion: a producer's commercial relationships are not conflicts when the artifact is marketing, and each is a conflict when the artifact is asked to be science. Cognition sells SWE-1.7 against this leaderboard.
 
 **COI, now receipted (2026-07-17):** No conflict-of-interest statement exists on any primary page. The SWE-1.7 launch post scores their own model on FrontierCode 1.1 Main (42.3%, third overall) in a results table alongside third-party benchmarks, with no ownership note, and states the alignment outright: "formulating and refining principles for good agentic software engineering both in evaluation, with FrontierCode 1, 2, and now in training, with SWE-1.7." The grader and the graded model are built on the same principles by the same team, the verdicts are unretrievable by outsiders, and no disclosure marks any of it.
 
