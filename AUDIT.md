@@ -40,17 +40,27 @@ Of the 11 checks, the private dataset blocks or degrades 6. That asymmetry is it
 
 **What the existing evidence establishes:** maintainers reject technically clean PRs for information outside the diff. Sweep's record contains closures where QA found zero bugs (4 of 5 "AI slop"-labeled PRs) and where the stated closure reason was the description, the cadence, or policy compliance. The lab result (43% → 91% under iteration) shows diff quality is the improvable part; the field residue after diff quality saturates is the social layer.
 
-**What it does not yet establish:** magnitude. The closure taxonomy covers closures, not the merge/close population; its categories ("pipeline error," "external") are not all non-diff causes; and no variance claim survives without merged PRs in the denominator. The argument runs in three stages: F4 establishes existence, F1 estimates prevalence on the closure set, and only then can F0 state construct loss. **Status: PARTIALLY SUPPORTED — existence established, magnitude pending F1.**
+**Magnitude (F1, run 2026-07-18):** on the audited population, at least 52 of 59 confidently-coded maintainer/bot closures were decided outside the rubric axes (two independent coders, 93% dichotomy agreement; full result in F1). **Status: SUPPORTED on the audited population** — existence (F4) plus prevalence floor (F1); the bound is the population, one AI-assisted contributor's 98 closures, not open source generally. The remaining open flank is their regime: at Diamond-level difficulty, diff-correctness failures may preempt the social layer.
 
-**Falsifier:** F1 maps the majority of re-verified closures onto FrontierCode's rubric axes. Or: at their task difficulty, diff-correctness failures preempt the social layer (the maintainer never reaches the description because the patch is wrong).
+**Falsifier:** a comparable coding exercise on a different contributor population where the majority of closures are diff-axis-decided.
 
-## F1: Axis mapping of real closures (prevalence stage; NOT YET RUN)
+## F1: Axis mapping of real closures (RUN 2026-07-18; prediction CONFIRMED)
 
 **Prediction:** Mapping sweep closures to FrontierCode's rubric axes leaves the majority unmapped, clustering on description, cadence, compliance, standing.
 
-**Protocol (upgraded 2026-07-17):** For each closure, from the PR thread itself, record: the underlying receipt; whether the patch was technically acceptable; every rubric axis the cause maps to (multi-label, not axis-or-NONE); whether the cause was observable in the diff; whether it was independently sufficient for closure; or unknown. A second coder from a different model family codes blind; disagreements are reported, not resolved silently. Output is a floor ("at least N of M re-verified closures map to no axis"), never a rate, and the coverage of the audited set is stated.
+**Protocol:** For each closure, from the PR thread itself (never sweep's own labels), record: closer identity; verbatim stated reason; any asserted code fault; every rubric axis the cause maps to (multi-label); diff-observability; the primary independently-sufficient cause; confidence. Second coder from a different model family (codex/GPT-5.5) codes blind from the verbatim quotes; disagreements reported, not resolved. Outputs are floors. Records: `f1/coded/all.jsonl`, `f1/second_coder_raw.txt`, `f1/PROTOCOL.md`.
 
-**Falsifier:** ≥50% of re-verified closures map onto the rubric axes. Then the critique narrows to "the diff is insufficient at the margin."
+**Population and coverage:** all 98 closed-unmerged PRs by kimjune01 since the pipeline epoch (2026-05-09), alongside 88 merged and 103 open at pull time. Closer: 57 maintainer, 8 bot, 33 self. Self-closes excluded from the maintainer-decision denominator. Of the 65 maintainer/bot closures, 6 were silent with no observable mechanism (unknown bucket, out of the floor), leaving 59 confidently coded.
+
+**Result:** **At least 52 of 59 confidently-coded maintainer/bot closures (88%) were decided by causes outside FrontierCode's six rubric axes**, where "at least" means both coders independently agreed on the non-diff side. Both coders agreed the closure was diff-axis-decided in exactly 3 cases (crashappsec/chalk#667, mgree/ffs#146, dhonus/jellyfin-tui#192); 4 cases split across the dichotomy (tracy#1359, lightning#4741, shelley#208, dapr#9924). Inter-coder agreement: 55/59 (93%) on the diff-vs-non-diff dichotomy, 37/59 on exact labels (disagreements are mostly adjacent non-diff categories: ai_identity vs standing vs policy_compliance).
+
+**Decomposition of the 53 primary-coder non-diff closures:** superseded-or-maintainer-fix 16, ai_identity 15, policy_compliance 8, duplicate 4, other 4 (including a 21-second cross-repo batch-close cluster at pallets, incompatible with per-diff evaluation), interaction_cadence 2, stale 2, wrong_premise 1, standing 1. Two distinct non-diff families: the *social layer* (ai_identity, policy, cadence, standing, description ≈ 26) and the *ecosystem layer* (superseded, duplicate, stale ≈ 22) — a diff-only grader predicts neither, but only the first is about the contribution's communication; the second is about the world state the benchmark's frozen snapshot can't see.
+
+**The ecological-accuracy kicker found in the data:** at least 4 "closed" PRs are actually accepted work — fish-shell#12754 cherry-picked to master preserving June Kim authorship, opensquilla#21 ported to dev "preserving your authorship," polars#27561's fix incorporated with credit, evebox#369 committed with co-author credit. The closed/merged binary itself mislabels outcomes in both directions, which any "would it merge" validation against raw GitHub outcomes must handle.
+
+**Bounds, stated:** this is one contributor's PR population, AI-generated, mostly small fixes, in a period when the contributor's public campaign made ai_identity closures more likely than a typical contributor would face. The 88% floor is a property of this population, not of open source generally. What it settles is the existence and prevalence *here*: a grader scoring these 59 diffs on the six axes would have predicted the wrong outcome dimension in at least 52 cases.
+
+**Falsifier (pre-registered ≥50% diff-axis-decided): did not trigger** — diff-axis-decided is 3/59 both-coder, 6/59 primary-coder.
 
 ## F2: Leaderboard attribution is confounded — model, harness, and effort vary jointly (score clause, rung 5)
 

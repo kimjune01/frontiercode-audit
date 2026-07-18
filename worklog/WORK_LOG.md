@@ -16,8 +16,11 @@ Fifth pass: scope pinned as a desk audit (operator: no experiments). F4 reframed
 
 Sixth pass (task-wise, grader-wise): registered F7. Grader-wise: 3 of 6 grading methods carry an LLM inside the oracle (mutagent adaptive grading, semantic scope, quality prompt); mutagent's "or the application code" patching flagged as a frame risk; blocker-zeroing amplifies any single bad criterion. Task-wise: drove the interactive demo in the browser, retrieved the full 10-criterion rubric for the one public task (receipt in sources/). Opus 4.8 fails 2/10 — both blockers, both the multi-line idiom — and the brief's literal sentence ("every instance of warning: <message>") favors the failed solution; plural-class underdetermination at blocker severity decides the verdict on the only inspectable task. Also captured: live 1.1 Main board (Fable 5 53.5% top; SWE-1.7 7th at $1.97/rollout), demo shows "Fail · 24%" where stated policy is blocker→0, chart legend admits mixed harnesses. QC credits recorded: hack reports, four-solution calibration, researcher-solves-subset.
 
-Next steps, cheapest first:
-1. F1 mapping table: export sweep closure records, re-verify labels against PR threads, map each to a FrontierCode rubric axis or NONE. Desk work, existing records only.
-2. Pull H17 treatment-arm outcomes from sweep (resolution was due 2026-05-21). Records lookup.
-3. Outward action, operator-gated: file the stale-Diamond correction with Epoch (their chart reports a subset v1.1 deprecated) — the evals-shop surface is where findings land.
-4. Right of reply: draft the note to Cognition when the findings stabilize.
+## 2026-07-18
+
+F1 RUN. 98 closures exported (population: 88 merged / 98 closed / 103 open since epoch); 7 parallel agents coded every thread from GitHub; codex blind-second-coded the 59 confident maintainer/bot closures from verbatim quotes. Result: at least 52/59 (88%) decided outside the rubric axes (both coders); diff-axis-decided 3/59 both-coder. Dichotomy agreement 93%. Falsifier (≥50% diff-axis) did not trigger. F0 upgraded to SUPPORTED on the audited population. Found 4 closures that are actually accepted work (cherry-picked/ported/credited) — the closed/merged binary mislabels both directions. H17 pulled: null (1/12 merged, 7/12 zero maintainer touch; merge-lever prediction fails; chalk closure engaged the experiment framing). Epoch on-page relay disclaimer captured; no public data export found.
+
+Next steps:
+1. Outward action, operator-gated: file the stale-Diamond correction with Epoch.
+2. Right of reply: draft the note to Cognition when the findings stabilize.
+3. If publishing: decide construct-position ambiguity (mergeability-as-social-outcome vs patch-quality retreat) and Endgame placement.
