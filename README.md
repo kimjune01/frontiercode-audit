@@ -16,6 +16,17 @@ Merge decisions in the wild are made about contributions, and the diff is a mino
 
 So FrontierCode measures mergeable diffs while claiming mergeable PRs, and the axes it omits are the ones our data shows dominate observed rejections.
 
+## What FrontierCode gets right
+
+The audit records credits with the same discipline as defects. On current reading:
+
+- **The diagnosis of SWE-bench is correct and ours agrees.** Autotest-only grading passes patches a maintainer would reject. Their false-positive critique and our slop-slope finding point at the same defect from opposite sides.
+- **Decay resistance (check 10).** The private dataset is a real anti-contamination credit, the same move MirrorCode earned credit for leaving out ungradeable targets. The scored artifact cannot be memorized from the public web. The critique is the unpriced trade: privacy buys decay resistance at the cost of falsifiability, and the announcement prices only one side.
+- **Maintainer-authored rubrics are a construct upgrade.** Moving the oracle from incidental autotests toward the people who actually decide merges is the right direction; the audit's claim is that it stopped partway (at the diff).
+- **Adaptive grading.** Accepting valid alternative implementations addresses the overly-specific-test failure mode directly (the plural class from the determinacy audit).
+- **A live internal audit loop.** v1.1 audited 1,000+ criteria and relaxed 75. That the loop exists is a credit; that only insiders can run it is F6.
+- **Terse prompts.** Expecting the agent to infer intent from a humanlike problem statement matches how contribution actually works (goal transmission over ticket compliance).
+
 ## Scope boundary (the honest counter)
 
 FrontierCode's Diamond subset is much harder than sweep's sweet spot (median 40-line boring fixes). In their regime, diff correctness plausibly is the binding constraint; in ours, the social and communication layer binds. The audit's claim is about the benchmark's stated question, which is about merging, a decision that regime difference does not hand back to the diff.
