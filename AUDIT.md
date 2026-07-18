@@ -1,6 +1,6 @@
-# FrontierCode Audit Preregistration (2026-07-17)
+# FrontierCode Audit (2026-07-17)
 
-The audit is an experiment on a benchmark. Each hypothesis is a claim about what FrontierCode measures versus what it says it measures. Numbering is F-prefixed to avoid colliding with sweep's H-series. Sin taxonomy and check numbers reference [How to Audit a Benchmark](https://june.kim/how-to-audit-a-benchmark).
+This is a desk audit: it reads FrontierCode's own disclosures against receipts that already exist (sweep's field record, the slop-slope lab result). No new experiments are run. Each hypothesis is a claim about what FrontierCode measures versus what it says it measures. Numbering is F-prefixed to avoid colliding with sweep's H-series. Sin taxonomy and check numbers reference [How to Audit a Benchmark](https://june.kim/how-to-audit-a-benchmark).
 
 ## Checklist coverage
 
@@ -58,11 +58,9 @@ The narrow claim (the 81% figure is externally unverifiable) is a special case o
 
 ## F4: A correct diff with a varied description changes the merge outcome
 
-**Prediction:** Holding the patch fixed and varying only the PR description (reasoning present vs absent, motivation accurate vs overclaimed) changes real-maintainer outcomes. Sweep already contains natural experiments (ruff#25066 closed on summary reasoning; H16 overclaimed-motivation tax; H17 description-treatment arm). A designed version is the buildable perturbation this audit should lead with.
+**Claim:** Holding the patch fixed and varying only the PR description (reasoning present vs absent, motivation accurate vs overclaimed) changes real-maintainer outcomes. This is a desk audit; no new experiments will be run. The claim rests on natural experiments already in the sweep record: ruff#25066 closed on summary reasoning with the code unchanged; H16's overclaimed-motivation tax; H17's 12-PR description-treatment arm (outcomes to be pulled from sweep, which is a records lookup, not a new run).
 
-**Status: NATURAL EXPERIMENTS SUPPORT IT; designed test not run.** Note H17's 12-PR treatment arm outcomes need to be pulled from sweep before designing anything new.
-
-**Falsifier:** Fixed-diff description variation produces no measurable outcome difference across n≥20 paired PRs. Then the description axis is decorative and FrontierCode's omission of it is harmless.
+**Falsifier:** The existing record, honestly reread, shows description variation with no outcome difference — the treatment arm indistinguishable from control, the ruff closure reclassified to a diff cause. Then the description axis is decorative and FrontierCode's omission of it is harmless.
 
 ## F5: Diamond selection-by-failure makes the 13.4% floor ambiguous
 
@@ -93,16 +91,20 @@ F3/F6 (private dataset) → audit surface = disclosures + leaderboard
 F1 (axis mapping)   → quantifies the gap F0 claims
 F5 (selection by failure) → 13.4% floor ambiguous between hard and defective
 F2 (harness confound) → attacks the leaderboard's model attribution
-F4 (fixed-diff perturbation) → the receipt: diff constant, outcome moves
+F4 (description moves outcomes) → the receipt from the existing record: diff constant, outcome moves
 ```
 
-F4 is the headliner. F1 is the cheapest next step (all inputs on local disk).
+F1 is the cheapest next step (all inputs on local disk). F4's evidence is already in the sweep record; pulling it is a lookup, not a run.
 
 ## Auditor's contract (standing constraints from the methodology post)
 
 - **Bound the claim.** F0 is a construct-validity gap, not fraud; the grader may be sound on what it checks.
 - **Report floors, never rates.** F1's output is "at least N of M closures map to no rubric axis," never a percentage of all merge decisions.
 - **Build it to come back empty.** If F1 maps ≥50% of closures onto the six axes, say so; that narrows the critique and the audit still worked.
-- **Name the cure: ecological accuracy.** The main recommendation's framing. Ecological validity is the classical question (does the instrument measure the construct as it occurs in the wild?); ecological accuracy is its quantitative upgrade: report the agreement rate between the instrument's verdict and the field outcome. FrontierCode claims to measure mergeability; ground truth for "would merge" exists in bulk in git history, so the claim is checkable as a number — take PRs whose merge outcomes are known, run the grader, report agreement. A benchmark that never reports this number has skipped its own criterion-validity check; one that reports it converts "trust it" into a calibration curve. The strong form is the detector from [(Issue) → PR](https://june.kim/issue-to-pr): a classifier trained on a repo's actual merge/close corpus predicts the construct directly, consumes the whole contribution (diff, description, interaction), and recalibrates as the repo's floor moves — where a frozen rubric encodes one snapshot of 20 maintainers' taste. Hold the cure to the same standard before proposing it: the detector's own ecological accuracy needs receipts (survivorship in the corpus, per-repo sample sizes), and so would any agreement number we demand from them (outcome-known PRs leak into training data; the clean set is post-cutoff merges).
+- **Name the cure.** Framing: **ecological accuracy**. Ecological validity is the classical question (does the instrument measure the construct as it occurs in the wild?); ecological accuracy is its quantitative upgrade: report the agreement rate between the instrument's verdict and the field outcome. FrontierCode claims to measure mergeability, and ground truth for "would merge" exists in bulk in git history, so the claim is checkable as a number — take PRs whose merge outcomes are known, run the grader, report agreement. A benchmark that never reports this number has skipped its own criterion-validity check; one that reports it converts "trust it" into a calibration curve.
+
+  Direct recommendation: **grade the hypothesis graph**, per [The Hypothesis Graph: A Verifiable Semantic Memory for Coding Agents](https://june.kim/the-hypothesis-graph-semantic-memory-methodeutics) ([PDF](https://june.kim/assets/the-hypothesis-graph-semantic-memory-methodeutics.pdf)). The axes FrontierCode omits (description reasoning, why-this-fix, interaction) are what a maintainer reviews when deciding to merge, and the paper's contribution is that this reasoning can be a gradeable artifact: typed claims, recorded trials, refutation edges, replayable by an independent party. A diff-only rubric grades the patch and discards the reasoning; a benchmark that scored the submitted hypothesis graph alongside the patch would measure the contribution a maintainer actually evaluates, with verification mechanical (rerun the recorded trials) rather than LLM-judged. Mergeability is at bottom a claim about reviewability, and the graph is the reviewable form of agent work.
+
+  Supporting form: the detector from [(Issue) → PR](https://june.kim/issue-to-pr), a classifier trained on a repo's merge/close corpus that predicts the construct directly and recalibrates as the repo's floor moves, where a frozen rubric encodes one snapshot of 20 maintainers' taste. Hold the cure to the audit's own standard: the detector's ecological accuracy needs receipts (survivorship, per-repo sample sizes), and any agreement number demanded from Cognition needs a contamination bound (outcome-known PRs leak into training data; the clean set is post-cutoff merges).
 - **Right of reply.** Findings go to Cognition before or as anything publishes; the actionable part files where they work.
 - **Audit yourself first.** The sweep closure taxonomy is our instrument; F1 must re-verify closure classifications against the underlying PR threads, not trust the graph's labels (the graph itself records reclassifications: ruff#25066, llama.cpp#22873, jellyfin-tui ×3 all moved categories on review).

@@ -39,7 +39,7 @@ FrontierCode's Diamond subset is much harder than sweep's sweet spot (median 40-
 2. **F0, the construct gap.** The claimed construct is the merge decision; the measured construct is diff quality. Sweep's field data (closure taxonomy) and the slop-slope lab result locate the decisive axes — description, cadence, compliance, standing — outside the rubric. The model-discrimination retreat is closed by their own text.
 3. **F5 + score hygiene.** Diamond, the subset the launch press quoted, was deprecated by v1.1; Epoch still charts it, at each model's best-performing reasoning effort (max-over-configs). Two headline statistics circulate for the same runs (rubric score and a binary pass rate Epoch declines to show).
 4. **F2, harness confound, confirmed.** Models ran under different harnesses (Claude Code, Codex, Gemini CLI, mini-SWE-agent, Devin per Epoch's export), so the board ranks (model, harness, effort) triples presented as models.
-5. **F4, the receipt to build.** Fixed diff, varied description, real maintainer outcomes: the one perturbation that tests the construct gap directly. Sweep's natural experiments support it; the designed version is pending.
+5. **F4, the receipt already in the record.** Fixed diff, varied description, real maintainer outcomes moving: sweep's natural experiments (ruff#25066, the H17 treatment arm) already contain it. This is a desk audit; nothing new gets run, the receipts get read.
 
 ## Audit surface
 
@@ -47,6 +47,6 @@ The dataset is private. Cognition grants evaluation access to model developers o
 
 ## Files
 
-- [PREREG.md](./PREREG.md) — pre-registered audit hypotheses with falsifiers
+- [AUDIT.md](./AUDIT.md) — audit hypotheses with falsifiers and the recommendation
 - [EVIDENCE.md](./EVIDENCE.md) — receipts: our data, their disclosures, third-party commentary
 - [worklog/WORK_LOG.md](./worklog/WORK_LOG.md) — dated session log
