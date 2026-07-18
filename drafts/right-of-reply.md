@@ -1,0 +1,27 @@
+# Right of reply: an external audit of FrontierCode
+
+*Draft. Not sent. Target: FrontierCode team at Cognition (research contact), with a copy as an issue on kimjune01/frontiercode-audit for the public record.*
+
+---
+
+Hello. I audit coding benchmarks (SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench, MirrorCode; method written up at https://june.kim/how-to-audit-a-benchmark). I've completed a desk audit of FrontierCode from your published pages and one measurement of my own, and before I publish anything I'm sending you the findings. Corrections welcome; whatever you send back gets linked from the audit.
+
+Full audit with receipts: https://github.com/kimjune01/frontiercode-audit
+
+**What holds up.** Your diagnosis of SWE-bench's false-positive problem matches my own field data from the other side. Reverse-classical testing is a genuinely good deterministic invention. The hack-report step, four-solution rubric calibration, and researchers solving tasks themselves are QC most benchmarks lack. The private task set is a real anti-contamination credit.
+
+**The main finding.** The headline asks "would the maintainer actually merge this PR?" and the grading inputs are the patch alone. I measured what that omission costs on a population where the answer is known: 98 closed-unmerged PRs from an AI-assisted contribution pipeline, every closure re-coded from its GitHub thread by two independent coders from different model families. At least 52 of 59 confidently-coded maintainer closures were decided by causes outside your six rubric axes: AI identity (a closer wrote "Closing without a review"), policy and template compliance, supersession, duplication, interaction cadence, description reasoning ("the summary doesn't explain why certain decisions were made"). Both coders found a diff-quality cause decisive in exactly 3 of 59. Four "closed" PRs were actually accepted work, cherry-picked or ported with credit. The population is one AI-assisted contributor, which enriches identity closures, and the bound is stated in the audit; the point that survives the bound is that mergeability, measured against real merge decisions, is mostly decided off-diff, and the benchmark's construct claim ("trust it to evaluate production readiness") is a calibration claim no published number supports. Protocol and coded data are in the repo.
+
+**Findings you can check in an afternoon.**
+
+1. Your example task's two failed blockers encode one requirement the brief underdetermines. The brief's operative sentence is "Use this new function in every instance of warning: <message> messages"; a continuation line of a multi-line warning is not an instance of "warning: <message>", and the failed solution converted every line that is. Your own commentary concedes the two solutions are "behaviorally the same." One ambiguous requirement, instantiated as two blockers, decides the only public verdict.
+2. The grading oracle's model is never named. Three of your seven grading-method rows put an LLM inside the verdict (mutagent adaptation, semantic scope, quality prompt), and every reference says only "an LLM": no name, no version, no pinning policy. Unpinned judges drift across revisions; unnamed judges make family bias unmeasurable; and nothing published lets a reader rule out that a board model grades the board.
+3. The leaderboard displays resolution the published mechanics can't certify. Ranks 4 through 7 sit within 0.7 points; mean@5 samples the agent's variance, not the grader's; no inter-run agreement or per-model interval is published. Blocker-zeroing amplifies any judge flip into a whole-trial swing.
+4. The board ranks configurations presented as models. Your chart legend says "marker shapes distinguish harnesses"; Epoch's export keeps each model's harness and best-performing reasoning effort. Model, harness, and effort vary jointly across entries.
+5. Deprecated Diamond scores still circulate as the benchmark's public numbers, relayed by Epoch and downstream leaderboards. No disclosed reason for the deprecation, no mapping from old to current scores.
+6. No conflict-of-interest statement appears on any page, while SWE-1.7 is scored on the board and its post states the model and the benchmark share design principles. Shared principles can legitimately produce a high score. The problem is that the independent validation that would rule out benchmark-specific overfitting is impossible while per-trial verdicts stay unretrievable.
+
+**The ask.** Publish enough to make the verdicts checkable: grader model and version per criterion class, pinned per revision; repeated-grader agreement on fixed submissions and per-model uncertainty intervals; per-trial submissions and rubric outcomes for at least a validation subset; mutagent adaptation logs for that subset; per-entry harness and effort configuration; an ownership statement; the reason for Diamond's deprecation. And one number the benchmark's own claim implies: a calibration figure against real merge decisions on post-cutoff PRs, since ground truth for "would merge" exists in bulk in git history. Every item above has a falsifier in the audit; the precision finding, for instance, dies if a judge-family rank-stability ablation shows adjacent gaps exceed the noise floor. I'd rather link your ablation than my inference.
+
+June Kim
+https://june.kim · audit: https://github.com/kimjune01/frontiercode-audit (CC BY-SA-NS)
