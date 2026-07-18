@@ -20,7 +20,7 @@ The audit, with receipts, protocols, and per-finding falsifiers: https://github.
 4. Each leaderboard entry is a jointly varying model-harness-effort configuration, and the numbered column reads as a model ranking (F2).
 5. Deprecated Diamond scores still circulate as the benchmark's public numbers, with no disclosed reason or comparability guidance; and no ownership statement appears on the pages reviewed while SWE-1.7 is scored on the board (F5, Governance).
 
-**The ask.** Publish enough to make the verdicts publicly checkable — the itemized minimum is in AUDIT.md under "Ask for concrete disclosures" — and the number the headline implies: criterion validity against adjudicated real merge decisions on post-cutoff PRs. Every finding above has a falsifier in the audit. I'd rather link your ablation than my inference.
+**The ask.** Publish enough to make the verdicts publicly checkable (the itemized minimum is in AUDIT.md under "Ask for concrete disclosures"), and the number the headline implies: criterion validity against adjudicated real merge decisions on post-cutoff PRs. Every finding above has a falsifier in the audit. I'd rather link your ablation than my inference.
 
 June Kim
 https://june.kim · audit: https://github.com/kimjune01/frontiercode-audit (CC BY-SA-NS)
