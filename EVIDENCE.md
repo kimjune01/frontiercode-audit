@@ -41,7 +41,16 @@ Source: june.kim/does-iteration-mitigate-slop-slope; repo https://github.com/kim
 - Field deployment of the same loop: 101 PRs, 54 merged, ~80–84% adjusted approval after backing out non-code closures (~70% of closures).
 - The residual lab-to-field gap is "fits our project," the social layer. No diff-only rubric scores it. Feeds F0.
 
+## Methodology
+
+- Checklist and sin taxonomy: https://june.kim/how-to-audit-a-benchmark (11 checks; 6 blocked here by the private dataset, see F6)
+- Base rate for gold defects: check 6 caught shipped defects in 3 of 3 benchmarks it was run against (DeepSWE 4/113, SWE-bench Pro 3/731, Terminal-Bench 2.1 6/89). Feeds F5/F6.
+
 ## Gaps / to collect
+
+- How "hardest" is operationalized for Main/Diamond subsets (model pass rates vs independent difficulty rating). Feeds F5.
+- Whether any Diamond task has a completed human baseline (measured, not estimated). Feeds F5.
+- v1.1 changelog detail on the 75 relaxed criteria: which axes, which tasks. Feeds F5/F6.
 
 - H17 treatment-arm outcomes (were due +7d from 2026-05-14; sweep graph on disk predates resolution).
 - Whether Epoch independently re-runs FrontierCode or relays Cognition's numbers.
