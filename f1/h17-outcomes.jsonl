@@ -1,0 +1,12 @@
+{"repo":"wolfpld/tracy","number":1359,"state":"CLOSED","resolvedAt":"2026-05-14T15:30:06Z","review_touch_after_treatment":true,"hg_referenced":false,"notes":"Closed same day by collaborator slomp: wrong approach; maintainer had WIP redesign"}
+{"repo":"tracel-ai/cubecl","number":1331,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"No maintainer activity; author self-drafted 2026-05-18"}
+{"repo":"sharkdp/bat","number":3741,"state":"CLOSED","resolvedAt":"2026-05-22T15:47:20Z","review_touch_after_treatment":false,"hg_referenced":false,"notes":"Competing PR #3737 chosen; rejection comment from non-maintainer (authorAssociation NONE)"}
+{"repo":"dyc3/opentogethertube","number":2018,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"Bot activity only"}
+{"repo":"charmbracelet/glow","number":947,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"No comments or reviews"}
+{"repo":"yonaskolb/XcodeGen","number":1622,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"No comments or reviews"}
+{"repo":"JojiiOfficial/LiveBudsCli","number":140,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"No maintainer activity; author self-drafted 2026-05-18"}
+{"repo":"fioncat/otree","number":134,"state":"MERGED","resolvedAt":"2026-05-16T15:58:02Z","review_touch_after_treatment":true,"hg_referenced":false,"notes":"Owner merged with thanks; third-party du82 commented suggesting block for AI-generated PRs"}
+{"repo":"clap-rs/clap","number":6376,"state":"CLOSED","resolvedAt":"2026-05-21T02:43:49Z","review_touch_after_treatment":false,"hg_referenced":false,"notes":"Author self-closed (no passing regression test); no maintainer touch"}
+{"repo":"crashappsec/chalk","number":667,"state":"CLOSED","resolvedAt":"2026-05-19T20:12:19Z","review_touch_after_treatment":true,"hg_referenced":true,"notes":"Collaborator miki725 closed engaging the experiment framing: 'thanks for participating in the AI research however unfortunately the proposed fix doesnt actually address the issue'"}
+{"repo":"elemaudio/elementary","number":80,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"No comments or reviews"}
+{"repo":"fjall-rs/fjall","number":290,"state":"OPEN","resolvedAt":null,"review_touch_after_treatment":false,"hg_referenced":false,"notes":"Pre-treatment bot review only"}

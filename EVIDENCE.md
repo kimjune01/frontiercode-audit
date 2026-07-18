@@ -48,6 +48,12 @@ The goal question the audit turned on: is their stated goal model discrimination
 - Best-performing reasoning effort = max-over-configs ranking, the check-4 score sin (ranking model-and-effort pairs presented as ranking models).
 - Harness heterogeneity confirmed: "Models are run through agent harnesses such as Claude Code, Codex, Gemini CLI, mini-SWE-agent, and Devin; we keep each model's harness and best-performing reasoning effort in the data export." Different models ran under different harnesses; leaderboard deltas mix model and harness. Direct F2 receipt.
 - Scoring mechanics: "mean@5 aggregation against a weighted rubric, where failing any blocker criterion yields a zero." Cognition also reports a separate binary pass rate that Epoch does not show, so two headline statistics circulate for the same runs.
+- On-page disclaimer (table view, retrieved live 2026-07-18): "The data shown for this benchmark does not come from Epoch AI internal runs: it is sourced from Cognition's FrontierCode." Relay stated on the page itself, not just in methodology.
+- The "data export" their methodology references was not found as a public CSV/JSON endpoint (probed 2026-07-18); the per-entry harness claim rests on their methodology sentence plus Cognition's chart legend.
+
+### H17 treatment-arm outcomes (pulled 2026-07-18, f1/h17-outcomes.jsonl)
+
+12 hypothesis-graph-in-body treatment PRs (treated 2026-05-14): 1 merged (otree, owner thanked), 4 closed (tracy: wrong approach with maintainer WIP preempt; bat: competing PR chosen; chalk: maintainer engaged the experiment framing and judged the fix wrong; clap: self-closed), 7 still open with zero maintainer touch. Review-touch after treatment: 3 of 12. HG/experiment framing referenced in a closure: 1 (chalk). Reading against the pre-registration: treatment merge rate does not beat control; H17's merge-lever prediction fails on this arm; the dominant outcome is no maintainer attention at all (7/12), so the binding variable in this arm was attention, not description content. H17a (disclosure as detection vector): one partial hit (chalk); otree drew a third-party "block him" comment about AI PRs generally.
 
 ### Other
 
