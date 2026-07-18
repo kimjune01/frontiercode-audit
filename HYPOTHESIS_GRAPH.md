@@ -22,7 +22,9 @@ Of the 11 checks, the private dataset blocks 6. That asymmetry is itself a findi
 
 ## F0: The diff is insufficient to predict a merge decision
 
-**Sin class: claim (check 1).** The equivocation is quotable: the headline register is "would a maintainer actually merge this PR?"; the methods register grades the patch against tests and a rubric. The grader can be sound on what it checks while what it checks is not the claim. This is the construct-validity gap, the sin that survives every mechanical check because those audit the instrument, not the advertisement.
+**Sin class: claim (check 1).** The audit's mode is construct-validity calibration: how well does their instrument measure what they claim to measure? The equivocation is quotable and now verbatim-pinned (EVIDENCE.md, sources/): the claimed construct is mergeability ("We're the first benchmark to measure code mergeability") in service of an automation goalpost ("as AI-generated code becomes the dominant path to production") and a certification role ("trust it to evaluate the production readiness of their strongest models"). The methods grade the patch against tests and a rubric whose blockers are "criteria that a maintainer would consider hard stops during code review," all diff-properties. The grader can be sound on what it checks while what it checks is not the claim.
+
+**Decision rule applied (2026-07-17):** if their stated goal were only model discrimination, the critique would be dropped. Verified against raw HTML: it is not. The ranking claim is derived from the construct claim ("81% less misclassification errors... This means that FrontierCode scores are the most accurate ranking"), so the model-discrimination defense is a retreat that abandons their own conclusion paragraph. The rebuttal anticipated earlier is closed off by their own text.
 
 **Prediction:** Among real-maintainer PR closures where the diff clears an adversarial quality gate, a majority cite non-diff causes (description reasoning, interaction cadence, policy/template compliance, contributor standing). A benchmark that grades only the diff therefore explains a minority of the variance in the outcome it claims to measure.
 
@@ -71,6 +73,8 @@ Of the 11 checks, the private dataset blocks 6. That asymmetry is itself a findi
 **Prediction:** The construction section does not demonstrate each Diamond task solvable by someone other than its author (a completed human baseline, not maintainer attestation). Their own v1.1 relaxation of 75 overly strict criteria is direct evidence that defects shipped in the graded rubric and were caught only by internal audit after launch.
 
 **Evidence to pull:** how "hardest" is operationalized in the announcement; whether any human-completion baseline exists; the v1.1 changelog.
+
+**Update (2026-07-17):** v1.1 deprecates the Diamond subset outright (leaderboard page, verbatim: "audits blocker criteria and deprecates the Diamond subset"). They killed the subset the launch press cycle quoted. This strengthens F5 (the subset was defective enough to retire) and adds a score-sin wrinkle: the circulating 13.4%/6.3%/4.7% numbers cite a deprecated subset, and secondary leaderboards still relay them.
 
 **Falsifier:** Cognition discloses that Diamond ranking is difficulty-rated by maintainers independent of model pass rates, plus a completed human baseline per task. Attestation alone does not clear it: every failing gold in the seven prior audits shipped from a benchmark whose authors believed it correct.
 

@@ -4,6 +4,19 @@ Receipts only. Every claim in the audit traces to a line here.
 
 ## FrontierCode's own disclosures
 
+### Stated goal, verbatim (verified 2026-07-17 against raw HTML, pinned in sources/)
+
+The goal question the audit turned on: is their stated goal model discrimination (critique weakens, per operator decision rule) or a goalpost for automation (critique stands, cite it)? Answer: goalpost for automation. All quotes from https://cognition.com/blog/frontier-code unless noted.
+
+- Automation framing, the citable sentence: "But as AI-generated code becomes the dominant path to production, correctness is now table stakes. The question that we should be asking is: can models actually write good code?"
+- Construct claim: "Would the maintainer actually merge this PR? We're the first benchmark to measure code mergeability."
+- Certification claim (conclusion): "FrontierCode is the benchmark for the next generation of coding agents. We are confident developers, enterprises, and researchers can trust it to evaluate the production readiness of their strongest models."
+- Signal claim: "Our benchmark provides the strongest available signal of a model's ability to write high-quality, maintainable code."
+- The ranking claim is derived from the construct claim, not independent of it: "FrontierCode produces 81% less misclassification errors than other leading benchmarks. This means that FrontierCode scores are the most accurate ranking currently available." The ranking is accurate BECAUSE the mergeability measurement is claimed accurate. Retreating to "we only rank models" abandons this sentence and the conclusion paragraph.
+- No technical report or paper exists; the blog posts and leaderboard page are the primary artifacts.
+
+### Structural facts
+
 - Announcement: https://cognition.com/blog/frontier-code (launched 2026-06-08)
   - Grading inputs: the patch, held-out tests, maintainer-authored rubric.
   - Six rubric axes: behavioral correctness, regression safety, mechanical cleanliness, test correctness, scope, code quality.
@@ -11,7 +24,10 @@ Receipts only. Every claim in the audit traces to a line here.
   - No mention of grading PR descriptions, commit messages, or agent communication. (Verified against the blog 2026-07-17; recheck before publishing.)
   - 150 tasks, 36 repos, 20+ maintainers, 40+ hours per task. Subsets: Extended 150 / Main 100 / Diamond 50.
   - Dataset private; evaluation access to model developers on request.
-  - v1.1: fair-internet-use rules, 1,000+ grading criteria audited, 75 relaxed.
+  - v1.1: fair-internet-use rules, 1,000+ grading criteria audited, 75 relaxed. The leaderboard page (verbatim): v1.1 "audits blocker criteria and deprecates the Diamond subset," and "Runs flagged for unfair internet use are zeroed."
+- Diamond deprecation means the widely-circulated 13.4%/6.3%/4.7% scores cite a subset the current revision no longer reports. Any published number must say which revision it refers to.
+- Rubric mechanics (announcement, verbatim): "Blockers represent mergeability requirements, i.e., criteria that a maintainer would consider hard stops during code review." Non-blockers are quality signals. Nothing on either list scores the PR description, commit messages, or agent communication.
+- Source snapshots: `sources/*.html`, retrieved 2026-07-17 via curl.
 - Their SWE-bench critique: ~81% false-positive rate claim (passing solutions that would not merge). Unverifiable externally; see F3.
 - Leaderboard (Diamond, as of 2026-07): Claude Opus 4.8 ~13.4%, GPT-5.5 6.3%, Gemini 3.1 Pro 4.7%.
 
