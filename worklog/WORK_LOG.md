@@ -1,0 +1,13 @@
+# Work log
+
+## 2026-07-17
+
+Repo created. Sources read: Cognition's FrontierCode announcement (grading inputs verified diff-only), Epoch AI tracker, Latent Space roundup, sweep HYPOTHESIS_GRAPH.md (retro 16 state), slop-slope post.
+
+Registered F0–F4 with falsifiers. Main critique fixed: the diff is insufficient — FrontierCode grades mergeable diffs while claiming mergeable PRs, and our field + lab data locate the decisive axes (description, cadence, compliance, standing) outside its rubric.
+
+Next steps, cheapest first:
+1. F1 mapping table: export sweep closure records, map each to a FrontierCode rubric axis or NONE.
+2. Pull H17 treatment-arm outcomes from sweep (resolution was due 2026-05-21).
+3. Check whether Epoch re-runs or relays (their methodology page / footnotes).
+4. Design the F4 fixed-diff description perturbation only after 1–2 are in.
